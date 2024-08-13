@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "author": "my own spin on existing project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 87.1,
+      "left": 343.65,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rp1",
+      "top": 349.55,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rp2",
+      "top": 368.75,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rp3",
+      "top": 426.35,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rp4",
+      "top": 397.55,
+      "left": 19.2,
+      "attrs": { "value": "1000" }
+    },
+    { "type": "wokwi-membrane-keypad", "id": "keypad1", "top": -30.8, "left": 5.6, "attrs": {} },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -102.17, "left": 515.2, "attrs": {} },
+    { "type": "wokwi-servo", "id": "servo1", "top": 161.2, "left": 595.2, "attrs": {} },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 71.15,
+      "left": 633.6,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "keypad1:C4", "pico:GP16", "green", [ "v15", "h132" ] ],
+    [ "keypad1:C3", "pico:GP17", "green", [ "v25", "h182" ] ],
+    [ "keypad1:C2", "pico:GP18", "green", [ "v35", "h204" ] ],
+    [ "keypad1:C1", "pico:GP19", "green", [ "v45", "h222" ] ],
+    [ "keypad1:R4", "pico:GP20", "green", [ "v55", "h240" ] ],
+    [ "keypad1:R3", "pico:GP21", "green", [ "v65", "h260" ] ],
+    [ "keypad1:R2", "pico:GP22", "green", [ "v75", "h286" ] ],
+    [ "keypad1:R1", "pico:GP26", "green", [ "v85", "h299" ] ],
+    [ "rp1:2", "keypad1:R1", "green", [ "h8.4", "v-48" ] ],
+    [ "rp2:2", "keypad1:R2", "green", [ "h18", "v-67.2" ] ],
+    [ "rp4:2", "keypad1:R3", "green", [ "h27.6", "v-96" ] ],
+    [ "rp3:2", "keypad1:R4", "green", [ "h37.2", "v-124.8" ] ],
+    [ "rp1:1", "rp2:1", "red", [ "v0" ] ],
+    [ "rp2:1", "rp4:1", "red", [ "v0" ] ],
+    [ "rp4:1", "rp3:1", "red", [ "v0" ] ],
+    [ "rp3:1", "pico:3V3", "red", [ "v19.2", "h417.15" ] ],
+    [ "servo1:GND", "pico:GND.1", "black", [ "h0" ] ],
+    [ "servo1:V+", "pico:3V3", "green", [ "h0" ] ],
+    [ "pico:VSYS", "lcd1:VDD", "purple", [ "v-104.4", "h95.9" ] ],
+    [ "servo1:PWM", "pico:GP28", "green", [ "h0" ] ],
+    [ "pico:GND.1", "lcd1:VSS", "black", [ "v0" ] ],
+    [ "pico:GND.1", "lcd1:K", "black", [ "v-86.4", "h240" ] ],
+    [ "pico:GND.1", "lcd1:RW", "black", [ "v-28.8", "h134.5" ] ],
+    [ "pico:GP13", "lcd1:RS", "green", [ "v0" ] ],
+    [ "pico:GP12", "lcd1:E", "green", [ "v0" ] ],
+    [ "pico:GP9", "lcd1:D4", "green", [ "v0" ] ],
+    [ "pico:GP8", "lcd1:D5", "green", [ "v0" ] ],
+    [ "pico:GP7", "lcd1:D6", "green", [ "v0" ] ],
+    [ "pico:GP6", "lcd1:D7", "green", [ "v0" ] ],
+    [ "r1:1", "lcd1:A", "green", [ "v0" ] ],
+    [ "r1:2", "pico:VSYS", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
