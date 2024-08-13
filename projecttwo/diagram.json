@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "author": "anoushka",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", 
+      "id": "bb1", 
+      "top": -108.6, 
+      "left": -275.6, 
+      "attrs": {} 
+    },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 51.86,
+      "left": -164.48,
+      "rotate": 270,
+      "attrs": { "env": "micropython-20220618-v1.19.1" }
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 109.2,
+      "left": 281.18,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -99.6,
+      "left": 138.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -78.82,
+      "left": -342.17,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "pir1:GND", "bb1:bn.25", "black", [ "v0" ] ],
+    [ "pico:GND.8", "bb1:bn.5", "black", [ "v0" ] ],
+    [ "pico:3V3_EN", "bb1:8b.i", "green", [ "v0" ] ],
+    [ "pir1:VCC", "bb1:8b.f", "red", [ "v0" ] ],
+    [ "pico:GP16", "bb1:24b.j", "green", [ "h0" ] ],
+    [ "pir1:OUT", "bb1:24b.h", "green", [ "v0" ] ],
+    [ "bz1:1", "bb1:bn.22", "green", [ "v0" ] ],
+    [ "bz1:2", "pico:GP5", "green", [ "v0" ] ],
+    [ "led1:A", "pico:GP27", "green", [ "v0" ] ],
+    [ "led1:C", "pico:GND.7", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
