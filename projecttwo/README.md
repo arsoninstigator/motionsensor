@@ -1,4 +1,4 @@
-# project two (bin @ hc) : motion sensor alarm
+# project two : motion sensor alarm with pi pico w
 wokwi link : https://wokwi.com/projects/406132714095425537
 <br><br>
 schematic diagram :
