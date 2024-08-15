@@ -1,4 +1,6 @@
-# project two : motion sensor alarm with pi pico w
+# project two (bin @hc) : motion sensor alarm with pi pico w
+tried my hand at tinkering around with hardware stuff but realized i didn't have that solid foundation
+<br><br>
 wokwi link : https://wokwi.com/projects/406132714095425537
 <br><br>
 schematic diagram :
