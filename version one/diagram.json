@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "anoushka",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -89.4, "left": -131.6, "attrs": {} },
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 96.9,
+      "left": -29.05,
+      "rotate": 270,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -103.2,
+      "left": -123,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 251.2,
+      "left": 225,
+      "rotate": 180,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": 92.6,
+      "left": 204.4,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pir-motion-sensor",
+      "id": "pir1",
+      "top": 67.2,
+      "left": 329.18,
+      "rotate": 180,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [ "bz1:1", "bb1:2t.c", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:3t.c", "", [ "$bb" ] ],
+    [ "bb1:2t.d", "bb1:bn.1", "green", [ "v0" ] ],
+    [ "bb1:3t.d", "pico:GP5", "green", [ "v153.6", "h-67.2", "v115.2", "h124.8" ] ],
+    [ "pico:GND.8", "bb1:bn.4", "black", [ "v0" ] ],
+    [ "pico:3V3", "bb1:bp.7", "green", [ "v0" ] ],
+    [ "bb1:bp.7", "bb1:8b.g", "green", [ "v0" ] ],
+    [ "led1:A", "bb1:bn.25", "green", [ "v-19.2", "h-86.4" ] ],
+    [ "led1:C", "relay1:COM", "green", [ "v-57.6", "h18.8", "v-38.4" ] ],
+    [ "relay1:NO", "bb1:bp.24", "green", [ "v1.2", "h-103.8" ] ],
+    [ "relay1:VCC", "bb1:bp.25", "red", [ "v38.4", "h-105.6" ] ],
+    [ "relay1:GND", "bb1:bn.23", "black", [ "v19.2", "h-114.8" ] ],
+    [ "pir1:GND", "bb1:bn.23", "black", [ "v-38.4", "h-162.94", "v48", "h-48" ] ],
+    [ "pico:GP26", "bb1:13b.i", "green", [ "v0" ] ],
+    [ "bb1:13b.h", "pir1:OUT", "green", [ "v0", "h364.8" ] ],
+    [ "pir1:VCC", "bb1:8b.f", "red", [ "v-48", "h-422.4" ] ]
+  ],
+  "dependencies": {}
+}
